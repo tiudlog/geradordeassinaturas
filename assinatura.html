@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerador de Assinaturas - Layout da Assinatura</title>
     <style>
-
         img {
             height: 100px;
-            padding : 5px;  
-        }       
+            padding: 5px;
+        }
 
-        .espacoLogo{
+        .espacoLogo {
             border-right: 2px solid #4D4D4D;
-            padding-right: 20px ;
+            padding-right: 20px;
         }
 
         a {
@@ -31,29 +31,31 @@
             font-weight: bold;
             font-family: Surce Sans Variable, Verdana, Geneva, Tahoma, sans-serif;
             letter-spacing: 1px;
-            font-size: 18px;            
+            font-size: 18px;
             color: #115391;
             padding-left: 20px;
         }
 
         .info {
             font-family: Verdana, Geneva, Tahoma, sans-serif;
-            font-size: 14px;            
+            font-size: 14px;
             color: #4D4D4D;
             padding-left: 20px;
-            padding-right: 20px;            
+            padding-right: 20px;
         }
-
-
     </style>
 </head>
-<body>    
+
+<body>
 
     <table id="layoutAssinatura">
         <tr>
-            <td rowspan="5" class="espacoLogo"><img src="https://tiudlog.github.io/geradordeassinaturas/imagens/UDLOG.png" alt="UD LOG - United Logistics" class="logo"></td>
+            <td rowspan="5" class="espacoLogo"><img
+                    src="https://tiudlog.github.io/geradordeassinaturas/imagens/UDLOG.png"
+                    alt="UD LOG - United Logistics" class="logo"></td>
             <td id="nome"><span></span></td>
-            <td rowspan="5"><img src="https://tiudlog.github.io/geradordeassinaturas/imagens/selo-gptw.png" alt="Selo GPTW" class="seloGptw"></td>
+            <td rowspan="5"><img src="https://tiudlog.github.io/geradordeassinaturas/imagens/selo-gptw.png"
+                    alt="Selo GPTW" class="seloGptw"></td>
         </tr>
         <tr>
             <td id="cargo" class="info"><span></span></td>
@@ -69,53 +71,122 @@
         </tr>
     </table>
 
-
-    <button id="btnSalvar">Salvar Assinatura</button>
+    <button id="btnSalvar">Salvar Assinatura em formato HTML</button>
 
     <script>
         // Obter os parâmetros da URL
         const params = new URLSearchParams(window.location.search);
-                
-        // Preencher os campos na página
-        document.getElementById("nome").querySelector("span").textContent = params.get("nome");
-        document.getElementById("cargo").querySelector("span").textContent = params.get("cargo");
-        document.getElementById("contato").querySelector("span").textContent = params.get("contato");
-        document.getElementById("site").querySelector("span").textContent = params.get("site");
-        document.getElementById("endereco").querySelector("span").textContent = params.get("endereco");       
 
-    </script>
+        // Preencher os campos na página com os valores dos parâmetros
+        const nomeAssinatura = params.get("nome");
+        const cargoAssinatura = params.get("cargo");
+        const contatoAssinatura = params.get("contato");
+        const siteAssinatura = params.get("site");
+        const enderecoAssinatura = params.get("endereco");
 
-    <script>
+        document.getElementById("nome").querySelector("span").textContent = nomeAssinatura;
+        document.getElementById("cargo").querySelector("span").textContent = cargoAssinatura;
+        document.getElementById("contato").querySelector("span").textContent = contatoAssinatura;
+        document.getElementById("site").querySelector("span").textContent = siteAssinatura;
+        document.getElementById("endereco").querySelector("span").textContent = enderecoAssinatura;
 
         // Adicionar evento de clique ao botão de salvar
         const btnSalvar = document.getElementById("btnSalvar");
-        btnSalvar.addEventListener("click", function() {
-            // Obter os parâmetros da URL e preencher os campos na página
-            const params = new URLSearchParams(window.location.search);
-            document.getElementById("nome").querySelector("span").textContent = params.get("nome");
-            document.getElementById("cargo").querySelector("span").textContent = params.get("cargo");
-            document.getElementById("contato").querySelector("span").textContent = params.get("contato");
-            document.getElementById("site").querySelector("span").textContent = params.get("site");
-            document.getElementById("endereco").querySelector("span").textContent = params.get("endereco");
-            
-            // Obter o conteúdo atual da página
-            const conteudoPagina = document.documentElement.outerHTML;
-            
+        btnSalvar.addEventListener("click", function () {
+            const generatedHTML = `
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assinatura Gerada</title>
+    <style>
+        img {
+            height: 100px;
+            padding: 5px;
+        }
+
+        .espacoLogo {
+            border-right: 2px solid #4D4D4D;
+            padding-right: 20px;
+        }
+
+        a {
+            color: #4D4D4D;
+            text-decoration: none;
+        }
+
+        .seloGptw {
+            height: 125px;
+            padding-top: 0px;
+            padding-bottom: 0px;
+        }
+
+        #nome {
+            font-weight: bold;
+            font-family: Surce Sans Variable, Verdana, Geneva, Tahoma, sans-serif;
+            letter-spacing: 1px;
+            font-size: 18px;
+            color: #115391;
+            padding-left: 20px;
+        }
+
+        .info {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 14px;
+            color: #4D4D4D;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <table id="layoutAssinatura">
+        <tr>
+            <td rowspan="5" class="espacoLogo"><img
+                    src="https://tiudlog.github.io/geradordeassinaturas/imagens/UDLOG.png"
+                    alt="UD LOG - United Logistics" class="logo"></td>
+            <td id="nome"><span>${nomeAssinatura}</span></td>
+            <td rowspan="5"><img src="https://tiudlog.github.io/geradordeassinaturas/imagens/selo-gptw.png"
+                    alt="Selo GPTW" class="seloGptw"></td>
+        </tr>
+        <tr>
+            <td id="cargo" class="info"><span>${cargoAssinatura}</span></td>
+        </tr>
+        <tr>
+            <td id="contato" class="info"><span>${contatoAssinatura}</span></td>
+        </tr>
+        <tr>
+            <td id="site" class="info"><a href="http://udlog.com.br/site/novo/" target="_blank"><span>${siteAssinatura}</span></a></td>
+        </tr>
+        <tr>
+            <td id="endereco" class="info"><span>${enderecoAssinatura}</span></td>
+        </tr>
+    </table>
+
+</body>
+
+</html>
+`;
+
             // Criar um Blob com o conteúdo e criar um link para download
-            const blob = new Blob([conteudoPagina], { type: "text/html" });
+            const blob = new Blob([generatedHTML], { type: "text/html" });
             const url = URL.createObjectURL(blob);
-            
+
             // Criar um link temporário para iniciar o download
             const linkDownload = document.createElement("a");
             linkDownload.href = url;
-            linkDownload.download = document.getElementById("nome").querySelector("span").textContent = params.get("nome"),".html"; // Nome do arquivo
+            linkDownload.download = nomeAssinatura + ".html"; // Nome do arquivo
             linkDownload.click();
-            
+
             // Liberar o objeto URL após o download
             URL.revokeObjectURL(url);
         });
-
     </script>
 
 </body>
+
 </html>
