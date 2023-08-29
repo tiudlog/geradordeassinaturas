@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Assinaturas</title>
+    <style>
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        h1{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: #4d4d4d;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+
+        .logo {
+            height: 90px;
+            align-items: center;
+            display: block;
+            margin: 0 auto; 
+        }
+
+        form {
+            align-items: center;
+            display: flex;
+            border: solid 1px #4d4d4d;
+            padding: 10px;
+            background-color: #115391;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: aliceblue;
+        }
+
+        input {
+            margin: 10px;
+        }
+
+        button {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 15px;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    
+    <h1>
+        Gerador de assinaturas de e-mail
+    </h1>    
+
+    <form id="geradorDeAssinaturas">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" required></br>
+
+        <label for="cargo">Cargo</label>
+        <input type="text" id="cargo" required></br>
+        
+        <label for="contato">Contato</label>
+        <input type="text" id="contato" required></br>
+
+        <label for="endereco">Endereco</label>
+        <input type="text" id="endereco" required></br>
+
+        <button type="button" id="gerarAssinatura">Gerar assinatura</button>
+    </form>
+
+    <img src="imagens/UDLOG.png" alt="UDlog - United Logistics" class="logo, footer">
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+        const gerarAssinatura = document.getElementById("gerarAssinatura");
+
+        gerarAssinatura.addEventListener("click", function(){
+            const nome = document.getElementById("nome").value;
+            const cargo = document.getElementById("cargo").value;
+            const contato = document.getElementById("contato").value;
+            const site = "www.udlog.com.br";
+            const endereco = document.getElementById("endereco").value;
+
+            // Codificar os dados para passar na URL
+            const encodedNome = encodeURIComponent(nome.toUpperCase());
+            const encodedCargo = encodeURIComponent(cargo.toUpperCase());
+            const encodedContato = encodeURIComponent(contato);
+            const encodedSite = encodeURIComponent(site);
+            const encodedEndereco = encodeURIComponent(endereco);
+
+            // Construir a URL da página de assinatura gerada
+            const url = `assinatura.html?nome=${encodedNome}&cargo=${encodedCargo}&contato=${encodedContato}&site=${encodedSite}&endereco=${encodedEndereco}`;
+
+            // Redirecionar para a nova página
+            window.location.href = url;
+        });
+    });
+</script>
+
+</html>
