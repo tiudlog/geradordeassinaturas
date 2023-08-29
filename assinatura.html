@@ -51,9 +51,9 @@
 
     <table id="layoutAssinatura">
         <tr>
-            <td rowspan="5" class="espacoLogo"><img src="imagens/UDLOG.png" alt="UD LOG - United Logistics" class="logo"></td>
+            <td rowspan="5" class="espacoLogo"><img src="https://tiudlog.github.io/geradordeassinaturas/imagens/UDLOG.png" alt="UD LOG - United Logistics" class="logo"></td>
             <td id="nome"><span></span></td>
-            <td rowspan="5"><img src="imagens/selo-gptw.png" alt="Selo GPTW" class="seloGptw"></td>
+            <td rowspan="5"><img src="https://tiudlog.github.io/geradordeassinaturas/imagens/selo-gptw.png" alt="Selo GPTW" class="seloGptw"></td>
         </tr>
         <tr>
             <td id="cargo" class="info"><span></span></td>
@@ -108,7 +108,7 @@
             // Criar um link temporário para iniciar o download
             const linkDownload = document.createElement("a");
             linkDownload.href = url;
-            linkDownload.download = "nome.html"; // Nome do arquivo
+            linkDownload.download = document.getElementById("nome").querySelector("span").textContent = params.get("nome"),".html"; // Nome do arquivo
             linkDownload.click();
             
             // Liberar o objeto URL após o download
