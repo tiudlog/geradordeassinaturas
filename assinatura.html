@@ -7,8 +7,7 @@
     <title>Gerador de Assinaturas - Layout da Assinatura</title>
     <style>
         img {
-            height: 80px;
-            padding: 5px;
+            height: 70px;            
         }
 
         .espacoLogo {
@@ -38,7 +37,7 @@
 
         .info {
             font-family: Verdana, Geneva, Tahoma, sans-serif;
-            font-size: 14px;
+            font-size: 13px;
             color: #4D4D4D;
             padding-left: 20px;
             padding-right: 20px;
@@ -61,13 +60,13 @@
             <td id="cargo" class="info"><span></span></td>
         </tr>
         <tr>
-            <td id="contato" class="info"><span></span></td>
+            <td id="contato" class="info"><span></span></td>    
         </tr>
         <tr>
             <td id="site" class="info"><a href="http://udlog.com.br/site/novo/" target="_blank"><span></span></a></td>
         </tr>
         <tr>
-            <td id="endereco" class="info"><span></span></td>
+            <td id="endereco" class="info"><a href="https://goo.gl/maps/Y1wfbqgz9s5T6qWR9" target="_blank"><span></span></a></td>
         </tr>
     </table>
 
@@ -81,12 +80,22 @@
         const nomeAssinatura = params.get("nome");
         const cargoAssinatura = params.get("cargo");
         const contatoAssinatura = params.get("contato");
+        const emailAssinatura = params.get("email");
         const siteAssinatura = params.get("site");
         const enderecoAssinatura = params.get("endereco");
 
+        var linkEmailAssinatura = document.createElement("a");
+        linkEmailAssinatura.href = "mailto:" + emailAssinatura;
+        linkEmailAssinatura.textContent = emailAssinatura;
+
         document.getElementById("nome").querySelector("span").textContent = nomeAssinatura;
         document.getElementById("cargo").querySelector("span").textContent = cargoAssinatura;
-        document.getElementById("contato").querySelector("span").textContent = contatoAssinatura;
+
+        var linhaContato = document.getElementById("contato").querySelector("span");
+        linhaContato.innerHTML = contatoAssinatura + " | ";
+        linhaContato.appendChild(linkEmailAssinatura);
+
+        //document.getElementById("contato").querySelector("span").textContent = contatoAssinatura + " | "+emailAssinatura;        
         document.getElementById("site").querySelector("span").textContent = siteAssinatura;
         document.getElementById("endereco").querySelector("span").textContent = enderecoAssinatura;
 
@@ -103,8 +112,7 @@
     <title>Assinatura Gerada</title>
     <style>
         img {
-            height: 80px;
-            padding: 5px;
+            height: 70px;
         }
 
         .espacoLogo {
@@ -118,7 +126,7 @@
         }
 
         .seloGptw {
-            height: 105px;
+            height: 100px;
             padding-top: 0px;
             padding-bottom: 0px;
         }
@@ -134,7 +142,7 @@
 
         .info {
             font-family: Verdana, Geneva, Tahoma, sans-serif;
-            font-size: 14px;
+            font-size: 13px;
             color: #4D4D4D;
             padding-left: 20px;
             padding-right: 20px;
@@ -157,13 +165,13 @@
             <td id="cargo" class="info"><span>${cargoAssinatura}</span></td>
         </tr>
         <tr>
-            <td id="contato" class="info"><span>${contatoAssinatura}</span></td>
+            <td id="contato" class="info"><span>${contatoAssinatura} | <a href=mailto:${emailAssinatura}>${emailAssinatura}</a></span></td>
         </tr>
         <tr>
             <td id="site" class="info"><a href="http://udlog.com.br/site/novo/" target="_blank"><span>${siteAssinatura}</span></a></td>
         </tr>
         <tr>
-            <td id="endereco" class="info"><span>${enderecoAssinatura}</span></td>
+            <td id="endereco" class="info"><a href="https://goo.gl/maps/Y1wfbqgz9s5T6qWR9" target="_blank"><span>${enderecoAssinatura}</a></span></td>
         </tr>
     </table>
 

@@ -70,6 +70,9 @@
         <label for="contato">Contato</label>
         <input type="text" id="contato" required></br>
 
+        <label for="e-mail">E-mail</label>
+        <input type="text" id="email" required></br>
+
         <label for="endereco">Endereco</label>
         <input type="text" id="endereco" required></br>
 
@@ -86,6 +89,7 @@
             const nome = document.getElementById("nome").value;
             const cargo = document.getElementById("cargo").value;
             const contato = document.getElementById("contato").value;
+            const email = document.getElementById("email").value;
             const site = "www.udlog.com.br";
             const endereco = document.getElementById("endereco").value;
 
@@ -93,11 +97,12 @@
             const encodedNome = encodeURIComponent(nome.toUpperCase());
             const encodedCargo = encodeURIComponent(cargo.toUpperCase());
             const encodedContato = encodeURIComponent(contato);
+            const encodedEmail = encodeURIComponent(email);
             const encodedSite = encodeURIComponent(site);
             const encodedEndereco = encodeURIComponent(endereco);
 
             // Construir a URL da página de assinatura gerada
-            const url = `assinatura.html?nome=${encodedNome}&cargo=${encodedCargo}&contato=${encodedContato}&site=${encodedSite}&endereco=${encodedEndereco}`;
+            const url = `assinatura.html?nome=${encodedNome}&cargo=${encodedCargo}&contato=${encodedContato}&email=${encodedEmail}&site=${encodedSite}&endereco=${encodedEndereco}`;
 
             // Redirecionar para a nova página
             window.location.href = url;
