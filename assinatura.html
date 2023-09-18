@@ -7,7 +7,7 @@
     <title>Gerador de Assinaturas - Layout da Assinatura</title>
     <style>
         img {
-            height: 70px;            
+            height: 70px;
         }
 
         .espacoLogo {
@@ -41,6 +41,12 @@
             color: #4D4D4D;
             padding-left: 10px;
             padding-right: 20px;
+            
+        }
+
+        #cargo, #contato, #site, #endereco {            
+            margin-top: 2px;
+            padding-bottom: 0px;            
         }
     </style>
 </head>
@@ -49,25 +55,24 @@
 
     <table id="layoutAssinatura">
         <tr>
-            <td rowspan="5" class="espacoLogo"><img
-                    src="https://tiudlog.github.io/geradordeassinaturas/imagens/UDLOG.png" alt="UD LOG - United Logistics" class="logo"></td>
+            <td rowspan="5" class="espacoLogo"><a href="http://udlog.com.br/site/novo/" target="_blank"><img
+                    src="https://tiudlog.github.io/geradordeassinaturas/imagens/UDLOG.png"
+                    alt="UD LOG - United Logistics" class="logo"></a></td>
             <td id="nome"><span></span></td>
             <td rowspan="5">
-                <img src="https://tiudlog.github.io/geradordeassinaturas/imagens/selo4estrelas.png" alt="Selo 4 estrelas" class="seloGptw">
-                <img src="https://tiudlog.github.io/geradordeassinaturas/imagens/seloVerdeingles.png" alt="Selo Verde" class="seloGptw">
+                <img src="https://tiudlog.github.io/geradordeassinaturas/imagens/selo4estrelas.png"
+                    alt="Selo 4 estrelas" class="seloGptw">
+                <img src="https://tiudlog.github.io/geradordeassinaturas/imagens/seloVerdeingles.png" alt="Selo Verde"
+                    class="seloGptw">
             </td>
         </tr>
         <tr>
-            <td id="cargo" class="info"><span></span></td>
-        </tr>
-        <tr>
-            <td id="contato" class="info"><span></span></td>    
-        </tr>
-        <tr>
-            <td id="site" class="info"><a href="http://udlog.com.br/site/novo/" target="_blank"><span></span></a></td>
-        </tr>
-        <tr>
-            <td id="endereco" class="info"><a href="https://goo.gl/maps/Y1wfbqgz9s5T6qWR9" target="_blank"><span></span></a></td>
+            <td>
+                <div id="cargo" class="info"><span></span></div>
+                <div id="contato" class="info"><span></span></div>
+                <div id="site" class="info"><a href="http://udlog.com.br/site/novo/" target="_blank"><span></span></a></div>
+                <div id="endereco" class="info"><a href="https://goo.gl/maps/Y1wfbqgz9s5T6qWR9" target="_blank"><span></span></a></div>
+            </td>
         </tr>
     </table>
 
@@ -148,6 +153,11 @@
             padding-left: 10px;
             padding-right: 20px;
         }
+
+        #cargo, #contato, #site, #endereco {            
+            margin-top: 2px;
+            padding-bottom: 0px;            
+        }
     </style>
 </head>
 
@@ -155,28 +165,26 @@
 
     <table id="layoutAssinatura">
         <tr>
-            <td rowspan="5" class="espacoLogo"><img
+            <td rowspan="5" class="espacoLogo"><a href="http://udlog.com.br/site/novo/" target="_blank"><img
                     src="https://tiudlog.github.io/geradordeassinaturas/imagens/UDLOG.png"
-                    alt="UD LOG - United Logistics" class="logo"></td>
+                    alt="UD LOG - United Logistics" class="logo"></a></td>
             <td id="nome"><span>${nomeAssinatura}</span></td>
             <td rowspan="5">
-                <img src="https://tiudlog.github.io/geradordeassinaturas/imagens/selo4estrelas.png" alt="Selo 4 estrelas" class="seloGptw">
-                <img src="https://tiudlog.github.io/geradordeassinaturas/imagens/seloVerdeingles.png" alt="Selo Verde" class="seloGptw">                    
+                <img src="https://tiudlog.github.io/geradordeassinaturas/imagens/selo4estrelas.png"
+                    alt="Selo 4 estrelas" class="seloGptw">
+                <img src="https://tiudlog.github.io/geradordeassinaturas/imagens/seloVerdeingles.png" alt="Selo Verde"
+                    class="seloGptw">
             </td>
         </tr>
         <tr>
-            <td id="cargo" class="info"><span>${cargoAssinatura}</span></td>
+            <td>
+                <div id="cargo" class="info"><span>${cargoAssinatura}</span></div>
+                <div id="contato" class="info"><span>${contatoAssinatura} | <a href=mailto:${emailAssinatura}>${emailAssinatura}</a></span></div>
+                <div id="site" class="info"><a href="http://udlog.com.br/site/novo/" target="_blank"><span>${siteAssinatura}</span></a></div>
+                <div id="endereco" class="info"><a href="https://goo.gl/maps/Y1wfbqgz9s5T6qWR9" target="_blank"><span>${enderecoAssinatura}</span></a></div>
+            </td>
         </tr>
-        <tr>
-            <td id="contato" class="info"><span>${contatoAssinatura} | <a href=mailto:${emailAssinatura}>${emailAssinatura}</a></span></td>
-        </tr>
-        <tr>
-            <td id="site" class="info"><a href="http://udlog.com.br/site/novo/" target="_blank"><span>${siteAssinatura}</span></a></td>
-        </tr>
-        <tr>
-            <td id="endereco" class="info"><a href="https://goo.gl/maps/Y1wfbqgz9s5T6qWR9" target="_blank"><span>${enderecoAssinatura}</a></span></td>
-        </tr>
-    </table>
+    </table>  
 
 </body>
 
